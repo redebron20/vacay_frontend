@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import {fetchListings} from '../actions/listingsAction'
+import ListingForm from './listing/listing_form'
 
 class ListingsContainer extends Component {
 
@@ -13,6 +14,7 @@ class ListingsContainer extends Component {
         return (
             <div>
                 Listings here:
+                <ListingForm />
             </div>
         )
     }
