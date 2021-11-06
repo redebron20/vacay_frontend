@@ -23,6 +23,7 @@ class ListingForm extends Component {
         kitchen: true,
         wifi: true,
         price: ""
+        // main_image: ""
     }
 
     handleChange = (event) => {
@@ -36,7 +37,7 @@ class ListingForm extends Component {
         this.setState({...this.state, [event.target.name]: event.target.value})
     }
 
-    handleOnSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         this.props.addListing(this.state)
         this.setState({
@@ -55,6 +56,7 @@ class ListingForm extends Component {
             kitchen: true,
             wifi: true,
             price: ""
+            // main_image: ""
         }) 
     }
 
@@ -64,7 +66,7 @@ class ListingForm extends Component {
             width: 700, 
             padding: 30 }}>
                 <h4>Add a new listing</h4>
-                <Form onSubmit={this.handleOnSubmit}>
+                <Form onSubmit={this.handleSubmit}>
                     <Form.Group>
                         <Form.Label>Title:</Form.Label>
                         <Form.Control type="text" onChange={this.handleChange} value={this.state.title} name="title"/>
@@ -83,6 +85,16 @@ class ListingForm extends Component {
                     <Form.Group>
                         <Form.Label>Location Description:</Form.Label>
                         <Form.Control as="textarea" type="text" onChange={this.handleChange} value={this.state.location_description} name="location_description"/>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Longitude:</Form.Label>
+                        <Form.Control type="text" onChange={this.handleChange} value={this.state.longitude} name="longitude"/>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Latitude:</Form.Label>
+                        <Form.Control type="text" onChange={this.handleChange} value={this.state.latitude} name="latitude"/>
                     </Form.Group>
 
                     <Form.Label>Pets allowed:</Form.Label>
@@ -113,68 +125,39 @@ class ListingForm extends Component {
                     </Form.Select>
                     <br />
 
-                    <Form.Label>Image url:</Form.Label>
-                    <Form.Control type="text" onChange={this.handleChange} value={this.state.img_url} name="img_url"/>
-                    
-                    <Form.Label>Number of guests:</Form.Label>
-                    <Form.Control type="text" onChange={this.handleChange} value={this.state.guests} name="guests"/>
-                    <Form.Label>Number of bedrooms:</Form.Label>
-                    <Form.Control type="text" onChange={this.handleChange} value={this.state.bedrooms} name="bedrooms"/>
-                    <Form.Label>Number of beds:</Form.Label>
-                    <Form.Control type="text" onChange={this.handleChange} value={this.state.beds} name="beds"/>
-                    <Form.Label>Number of baths:</Form.Label>
-                    <Form.Control type="text" onChange={this.handleChange} value={this.state.baths} name="baths"/>
+                    <Form.Group>
+                        <Form.Label>Number of guests:</Form.Label>
+                        <Form.Control type="text" onChange={this.handleChange} value={this.state.guests} name="guests"/>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Number of bedrooms:</Form.Label>
+                        <Form.Control type="text" onChange={this.handleChange} value={this.state.bedrooms} name="bedrooms"/>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Number of beds:</Form.Label>
+                        <Form.Control type="text" onChange={this.handleChange} value={this.state.beds} name="beds"/>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Number of baths:</Form.Label>
+                        <Form.Control type="text" onChange={this.handleChange} value={this.state.baths} name="baths"/>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Price:</Form.Label>
+                        <Form.Control type="text" onChange={this.handleChange} value={this.state.price} name="price"/>
+                    </Form.Group>
+
+                    {/* <Form.Group className="mb-3">
+                        <Form.Label>Upload Image</Form.Label>
+                        <Form.Control type="file" onChange={this.handleChange} value={this.state.main_image} name="main_image" />
+                    </Form.Group> */}
 
                     <Button variant="primary" type="submit">
                         Create New Listing
                     </Button>
-
-                    {/* <label>Title:</label>
-                    <input type='text' value={this.state.title} onChange={this.handleChange} name="title"/>
-                    < br />
-                    <label>Description:</label>
-                    <input type='text' value={this.state.description} onChange={this.handleChange} name="description"/>
-                    < br />
-                    <label>Location:</label>
-                    <input type='text' value={this.state.location} onChange={this.handleChange} name="location"/>
-                    < br />
-                    <label>Location Description:</label>
-                    <input type='text' value={this.state.location_description} onChange={this.handleChange} name="location_description"/>
-                    < br />
-                    <label>Pets allowed:</label>
-                        <select value={this.state.pets_allowed} onChange={this.handleSelect} name="pets_allowed">
-                            <option value='true' >Yes</option>
-                            <option value='false' >No</option>
-                        </select>  
-                    < br />
-                    <label>Air conditioning:</label>
-                        <select value={this.state.air_conditioning} onChange={this.handleSelect} name="air_conditioning">
-                            <option value='true' >Yes</option>
-                            <option value='false' >No</option>
-                        </select>  
-                    < br />
-                    <label>Wifi:</label>
-                        <select value={this.state.wifi} onChange={this.handleSelect} name="wifi">
-                            <option value='true' >Yes</option>
-                            <option value='false' >No</option>
-                        </select>  
-                    < br />
-                    <label>Kitchen:</label>
-                        <select value={this.state.kitchen} onChange={this.handleSelect} name="kitchen">
-                            <option value='true' >Yes</option>
-                            <option value='false' >No</option>
-                        </select>  
-                    < br />
-                    <label>Guests:</label>
-                    <input type='text' value={this.state.guests} onChange={this.handleChange} name="guests"/>
-                    < br />
-                    <label>Bedrooms:</label>
-                    <input type='text' value={this.state.bedrooms} onChange={this.handleChange} name="bedrooms"/>
-                    < br />
-                    <label>Price:</label>
-                    <input type='text' value={this.state.price} onChange={this.handleChange} name="price"/>
-                    < br />
-                    <input type='submit' value='Create Listing'/> */}
 
                 </Form>
             </div>
@@ -183,4 +166,4 @@ class ListingForm extends Component {
 }
 
 
-export default connect()(ListingForm);
+export default connect(null, { addListing })(ListingForm);

@@ -7,7 +7,8 @@ export const fetchListings = () => {
 }
 
 export const addListing = (listing) => {
-    return (dispatch) => {
+    return dispatch => {
+        debugger
         fetch('http://localhost:3000/listings', {
             method: 'POST',
             body: JSON.stringify(listing),
